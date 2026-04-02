@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguist Knight: The Tower</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen" class="overlay">
+        <div class="menu-box">
+            <h1 class="glow-text">LINGUIST KNIGHT</h1>
+            <p>By: Brendon, Morogh and Hisham</p>
+            <p style="font-size: 0.8em; color: #888;">Coded: Brendon</p>
+            <hr style="border: 0.5px solid #333; margin: 20px 0;">
+            <p>Defeat the Word-Weaver (250 HP) in under 8 minutes.</p>
+            <button class="start-btn" onclick="startGame()">BEGIN ASCENT</button>
+        </div>
+    </div>
+
+    <div id="victory-screen" class="overlay" style="display: none;">
+        <div class="menu-box victory-border">
+            <h1 class="glow-text" style="color: #ffcc00;">VICTORY</h1>
+            <p>The Word-Weaver has been silenced!</p>
+            <p>Champion: Brendon</p>
+            <p>Tacticians: Morogh & Hisham</p>
+            <button class="start-btn" onclick="location.reload()">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <div id="loss-screen" class="overlay" style="display: none;">
+        <div class="menu-box loss-border">
+            <h1 class="blink-text">DEFEATED</h1>
+            <p>The tower has collapsed...</p>
+            <p>Better luck next time, Brendon.</p>
+            <button class="start-btn" onclick="location.reload()">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="hud">
+            <div id="timer">08:00</div>
+            
+            <div class="character-hud boss-hud">
+                <pre id="boss-visual" class="ascii-art boss-graphic">
+      __
+     /  \
+    | ** |
+    (  ^^)
+     \__/
+     /||\
+    //||\\</pre>
+                <div class="stats-box">
+                    <p>BOSS: Word-Weaver</p>
+                    <p>HP: <span id="boss-hp">250</span> / 250</p>
+                    <div class="hp-bar-bg"><div id="boss-hp-fill"></div></div>
+                </div>
+            </div>
+            
+            <div class="character-hud player-hud">
+                <div class="stats-box">
+                    <p>HERO: Linguist Knight</p>
+                    <p>HP: <span id="player-hp">100</span> / 100</p>
+                    <div class="hp-bar-bg"><div id="player-hp-fill"></div></div>
+                </div>
+                <pre id="player-visual" class="ascii-art player-graphic">
+     / \
+    |===|
+    |0 0|
+    |(_)|
+    /---\
+   /|   |\
+  / |   | \
+ /  |___|  \</pre>
+            </div>
+        </div>
+
+        <div class="display-box">
+            <p id="sentence">Prepare yourself...</p>
+        </div>
+
+        <div id="options" class="options">
+            <button onclick="checkAnswer('Metaphor')">Metaphor</button>
+            <button onclick="checkAnswer('Simile')">Simile</button>
+            <button onclick="checkAnswer('Personification')">Personification</button>
+            <button onclick="checkAnswer('Hyperbole')">Hyperbole</button>
+            <button onclick="checkAnswer('Onomatopoeia')">Onomatopoeia</button>
+            <button onclick="checkAnswer('Alliteration')">Alliteration</button>
+        </div>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
